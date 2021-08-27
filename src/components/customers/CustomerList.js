@@ -15,6 +15,7 @@ export const CustomerList = () => {
     // of customerArray, in this case, since we are fetching customers.
     useEffect(
         () => {
+            console.log("init")
             fetch("http://localhost:8088/customers")
             .then(res => res.json())
             .then(
@@ -32,6 +33,7 @@ export const CustomerList = () => {
     // it will only run if you call the variable in which it is stored (see userState), here totalCustomerMessage
     useEffect(
         () => {
+            console.log("second")
             if (customers.length === 1){
                 updateMessage("You have 1 customer")
             } else {
@@ -49,7 +51,7 @@ export const CustomerList = () => {
     return (
         <>
             <div>{totalCustomerMessage}</div>
-            {customers.map(
+            {customers.slice(0, 5).map(
                 (customerObject) => {
                     return <p key={`customer--${customerObject.id}`}>{customerObject.name}</p>
                 })}
