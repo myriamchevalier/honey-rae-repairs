@@ -4,6 +4,7 @@ export const EmployeeList = () => {
 
 
     const [employees, setEmployees] = useState([])
+    const [specialtiesMessage, displaySpecialties] = useState([])
 
     useEffect(
         () => {
@@ -18,8 +19,20 @@ export const EmployeeList = () => {
         },
         []
     )
+    useEffect(() => {
+            const employeeSpecialty = employees.map(employee => employee.specialty)
+            displaySpecialties(employeeSpecialty.join(", "))
+        }
+    , [employees]
+    
+    )
+
+
     return (
-        <>
+        <> 
+            <div>
+                Specialties: { specialtiesMessage }
+            </div>
             {employees.map(
                 (employeeObject) => {
                     return <p key={`employee--${employeeObject.id}`}>{employeeObject.name}</p>
