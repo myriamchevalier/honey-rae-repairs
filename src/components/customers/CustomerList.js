@@ -29,11 +29,13 @@ export const CustomerList = () => {
     // We wrap our html in two seemingly empty "html" element, but this is actually jsx.
     // It is called a fragment.
     // React only allows to return one element from jsx. 
+    // React doesn't like element that have no key (a unique identifier, think id)
     return (
         <>
+            <h2>Customer List</h2>
             {customers.map(
                 (customerObject) => {
-                    return <h2>{customerObject.name}</h2>
+                    return <p key={`customer--${customerObject.id}`}>{customerObject.name}</p>
                 })}
         </>
     )
