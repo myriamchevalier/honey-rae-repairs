@@ -9,7 +9,7 @@ export const Repairs = () => {
         <>  
             <NavBar/>
             <h1>Honey Rae's Repair Shop</h1>
-                <ApplicationViews/>
+            <ApplicationViews/>
             </>
     )
 }
