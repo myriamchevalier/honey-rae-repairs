@@ -20,11 +20,11 @@ export const TicketList = () => {
             {
                 tickets.map(
                     (ticket) => {
-                        return <p key={`ticket--${ticket.id}`}>
-                        {ticket.description} 
-                        submitted by {ticket.customer.name}
-                        worked on by {ticket.employee.name}
-                        </p>
+                        return <div key={`ticket--${ticket.id}`}>
+                        <p>{ticket.description}</p>
+                        <p>submitted by {ticket.customer.name}</p>
+                        <p>worked on by {ticket.employee.name}</p>
+                        </div>
                     }
                 )
             }
