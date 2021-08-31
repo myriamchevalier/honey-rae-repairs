@@ -8,8 +8,22 @@ export const EmployeeHireForm = () => {
 
     const saveEmployee = (event) => {
         event.preventDefault()
-        //add more code for saving to permanent state here
-        // also, refresh page to employees by using history.push
+        const newEmployee = {
+            name: employee.name,
+            specialty: employee.specialty
+        }
+        const fetchOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type" : "application/json"
+            }, 
+            body: JSON.stringify(newEmployee)
+        }
+        fetch("http://localhost:8088/employees", fetchOptions)
+        .then(res => res.json())
+        .then(
+            () => history.push("/employees")
+             )
     }
 
     return (
@@ -27,8 +41,8 @@ export const EmployeeHireForm = () => {
                             onChange={           
                                 (event) => {
                                     const copy = {...employee}
-                                    employee.name = event.target.value
-                                    updateTicket(copy)
+                                    copy.name = event.target.value
+                                    updateEmployee(copy)
                             }
                         } />
                     </div>
@@ -42,12 +56,15 @@ export const EmployeeHireForm = () => {
                             onChange={
                                 (event) => {
                                     const copy = {...employee}
-                                    employee.specialty = event.target.value
-                                    updateTicket(copy)
+                                    copy.specialty = event.target.value
+                                    updateEmployee(copy)
                                 }
                             }/>
                     </div>
                 </fieldset>
+                <button className="btn btn-primary" onClick={saveEmployee}>
+                Hire Employee
+                </button>
                 </form>
         </>
     )
