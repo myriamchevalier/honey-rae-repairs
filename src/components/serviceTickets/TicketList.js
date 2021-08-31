@@ -20,7 +20,7 @@ export const TicketList = () => {
     return (
         <>
         <div>
-            <button onClick={() => history.push("/ticket/create")}>Create Ticket</button>
+            <button onClick={() => history.push("/tickets/create")}>Create Ticket</button>
         </div>
 
             {
