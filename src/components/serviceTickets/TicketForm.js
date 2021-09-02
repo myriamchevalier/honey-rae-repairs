@@ -20,21 +20,21 @@ export const TicketForm = () => {
         const fetchOptions = {
             method: "POST",
             headers: {
-                "Content-Type" : "application/json"
-            }, 
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify(newTicket)
         }
         fetch("http://localhost:8088/serviceTickets", fetchOptions)
-        .then(res => res.json())
-        .then (
-            () => {
-                history.push("/tickets")
-            }
-        )
+            .then(res => res.json())
+            .then(
+                () => {
+                    history.push("/tickets")
+                }
+            )
     }
 
     return (
-        <form className="ticketForm">
+        <form className="ticketForm" key="newEmployeeForm">
             <h2 className="ticketForm__title">New Service Ticket</h2>
             <fieldset>
                 <div className="form-group">
@@ -46,7 +46,7 @@ export const TicketForm = () => {
                         placeholder="Brief description of problem"
                         onChange={
                             (event) => {
-                                const copy = {...ticket}
+                                const copy = { ...ticket }
                                 copy.description = event.target.value
                                 updateTicket(copy)
                             }
@@ -59,11 +59,11 @@ export const TicketForm = () => {
                     <input type="checkbox"
                         onChange={
                             (event) => {
-                                const copy = {...ticket}
+                                const copy = { ...ticket }
                                 copy.emergency = event.target.checked
                                 updateTicket(copy)
-                        }
-                    } />
+                            }
+                        } />
                 </div>
             </fieldset>
             <button className="btn btn-primary" onClick={saveTicket}>
