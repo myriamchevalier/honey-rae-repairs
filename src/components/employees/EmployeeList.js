@@ -38,7 +38,7 @@ export const EmployeeList = () => {
             </div>
             {employees.map(
                 (employeeObject) => {
-                    return <p key={`employee--${employeeObject.id}`}><Link to={`/employees/${employee.id}`}>{employeeObject.name}</Link></p>
+                    return <p key={`employee--${employeeObject.id}`}><Link to={`/employees/${employeeObject.id}`}>{employeeObject.name}</Link></p>
                 })}
         </>
     )
