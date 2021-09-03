@@ -28,7 +28,7 @@ export const TicketList = () => {
             {
                 tickets.map(
                     (ticket) => {
-                        return <div key={`ticket--${ticket.id}`} className={ticket.emergency ? "emergency" : ""}>
+                        return <div key={`ticket--${ticket.id}`} className={ticket.emergency ? "emergency" : "ticket"}>
                             <p>{ticket.emergency ? "🚑" : ""} 
                             <Link to={`/tickets/${ticket.id}`}>{ticket.description}</Link> 
                             </p>
